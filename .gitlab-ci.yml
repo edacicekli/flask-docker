@@ -1,0 +1,23 @@
+stages:
+  - build
+  - deploy
+
+build job:
+  stage: build
+  script:
+    - export SERVER_NAME=0.0.0.0
+    - export FLASK_APP=web
+    - apt-get update -y
+    - apt-get install python3-pip -y
+    - pip install -r requirements.txt
+    - python app.py
+
+deploy job:
+  stage: deploy
+  script:
+    - apt-get update -y
+
+
+
+
+
